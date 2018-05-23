@@ -1,0 +1,15 @@
+<h1>Restaurants</h1>
+
+<ul>
+  <% @restaurants.each do |restaurant| %>
+   <li>
+    <%= link_to restaurant.name, "restaurants/#{restaurant.id}" %>
+    - <%= restaurant.category %>
+    <%= link_to "", restaurant_path(restaurant), class: "far fa-trash-alt",
+        method: :delete,
+        data: { confirm: "Are you sure?" } %>
+   </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Add Restaurant', new_restaurant_path %>

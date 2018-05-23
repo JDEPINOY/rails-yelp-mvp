@@ -1,0 +1,32 @@
+<div class= "container">
+  <h1>Restaurant details</h1>
+  <div classe = "row">
+    <div>
+      Name : <%= @restaurant.name %>
+    </div>
+    <div>
+      Address : <%= @restaurant.address %>
+    </div>
+    <div>
+      <span id = "headline">Category :</span> <%= @restaurant.category %>
+    </div>
+  </div>
+
+  <p><%= link_to "Edit elements", edit_restaurant_path, class: "fas fa-pencil-alt" %></p>
+
+  <div>
+    <h3>Reviews</h3>
+    <ul>
+      <% @reviews.each do |review| %>
+        <li>
+          <%= review.content %> - Rating : <%= review.rating %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <p><%= link_to "+Add review", new_restaurant_review_path(@restaurant.id) %></p>
+  <div>
+  <%= link_to "Back to list", restaurants_path %>
+  </div>
+
+</div>
